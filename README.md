@@ -25,7 +25,7 @@ Un chatbot web interactivo e inteligente que utiliza la API de Gemini para propo
 
    - **Nombre**: Nova AI Chatbot (o el nombre que prefieras)
    - **Entorno**: Node
-   - **Build Command**: `npm install && npm run build`
+   - **Build Command**: `npm install && npx vite build && npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist`
    - **Start Command**: `npm start`
 
 5. Configura las siguientes variables de entorno:
