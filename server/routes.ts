@@ -22,7 +22,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Initialize Gemini API
   const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
-  const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
   // Chat endpoint
   app.post("/api/chat", async (req, res) => {
