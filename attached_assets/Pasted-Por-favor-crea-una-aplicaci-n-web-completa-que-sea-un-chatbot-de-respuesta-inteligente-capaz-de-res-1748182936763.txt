@@ -1,0 +1,24 @@
+Por favor, crea una aplicación web completa que sea un chatbot de respuesta inteligente capaz de responder a cualquier consulta del usuario con alta precisión y naturalidad. La aplicación debe incluir:
+	•	Interfaz de usuario:
+	•	Diseño extremadamente hermoso, moderno y profesional.
+	•	Usa el mejor CSS del mundo, con animaciones suaves, colores armoniosos, tipografía elegante y experiencia de usuario impecable.
+	•	La interfaz debe ser responsiva y funcionar perfectamente en dispositivos móviles y escritorio.
+	•	Botones, cajas de texto y chat deben ser estilizados con detalles refinados y visualmente atractivos.
+	•	Frontend JavaScript:
+	•	Usa el mejor JavaScript moderno (ES6+) para una experiencia fluida, con interacción instantánea y sin recargas.
+	•	Implementa una lógica eficiente para enviar y recibir mensajes, mostrando respuestas de manera natural, con carga y animaciones que mejoren la UX.
+	•	Incluye funcionalidades como historial de chat, soporte para mensajes de texto enriquecidos y notificaciones.
+	•	Backend Node.js:
+	•	Crea un backend robusto, seguro y escalable usando Node.js y frameworks modernos (por ejemplo, Express o Fastify).
+	•	El backend debe manejar la conexión con una API externa, en este caso con la APK de Gemini para obtener las respuestas inteligentes del chatbot.
+	•	Asegura una gestión eficiente de sesiones y comunicación en tiempo real para respuestas rápidas.
+	•	Implementa validaciones, manejo de errores y optimización para alta concurrencia.
+	•	Integración con API key de Gemini:
+	•	La aplicación debe conectarse con la API de Gemini para enviar preguntas y recibir respuestas inteligentes, precisas y naturales.
+	•	Garantiza que las respuestas sean coherentes, contextuales y de alta calidad.
+	•	Extras:
+	•	Usa tecnologías modernas para optimizar rendimiento y seguridad.
+	•	La aplicación debe ser fácil de desplegar en servidores modernos.
+	•	La interfaz y experiencia deben ser de nivel profesional y sorprendente para el usuario final.
+
+El resultado debe ser la mejor aplicación chatbot del mundo, que funcione perfectamente y tenga la interfaz más hermosa, el CSS más avanzado, el JavaScript más eficiente y un backend Node.js sólido que maneje la conexión con Gemini y garantice respuestas inteligentes y precisas
