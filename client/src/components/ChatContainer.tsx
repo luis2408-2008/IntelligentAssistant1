@@ -18,10 +18,17 @@ const suggestions = [
 export function ChatContainer({ messages, isTyping, onSuggestionClick }: ChatContainerProps) {
   const chatContainerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to bottom when messages change
+  // Scroll to bottom when messages change or typing status changes
   useEffect(() => {
     if (chatContainerRef.current) {
-      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+      const container = chatContainerRef.current;
+      // Use smooth scrolling behavior
+      setTimeout(() => {
+        container.scrollTo({
+          top: container.scrollHeight,
+          behavior: 'smooth'
+        });
+      }, 100);
     }
   }, [messages, isTyping]);
 
@@ -29,10 +36,10 @@ export function ChatContainer({ messages, isTyping, onSuggestionClick }: ChatCon
 
   return (
     <main className="flex-1 overflow-hidden flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-      <div className="relative flex-1 flex flex-col">
+      <div className="relative flex-1 flex flex-col overflow-hidden">
         <div 
           ref={chatContainerRef}
-          className="chat-container flex-1 overflow-y-auto p-4 sm:p-6" 
+          className="chat-container absolute inset-0 overflow-y-auto p-4 sm:p-6" 
         >
           {/* Empty state when no messages */}
           {showEmptyState && (
