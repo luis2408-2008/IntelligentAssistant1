@@ -1,8 +1,8 @@
 import { users, type User, type InsertUser, messages, type Message, type InsertMessage } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
-// modify the interface with any CRUD methods
-// you might need
-
+// Interface for storage operations
 export interface IStorage {
   // User operations
   getUser(id: number): Promise<User | undefined>;
@@ -15,6 +15,45 @@ export interface IStorage {
   deleteMessagesBySessionId(sessionId: string): Promise<void>;
 }
 
+// Database storage implementation
+export class DatabaseStorage implements IStorage {
+  // User methods
+  async getUser(id: number): Promise<User | undefined> {
+    const result = await db.select().from(users).where(eq(users.id, id));
+    return result[0];
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const result = await db.select().from(users).where(eq(users.username, username));
+    return result[0];
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const result = await db.insert(users).values(insertUser).returning();
+    return result[0];
+  }
+  
+  // Message methods
+  async saveMessage(insertMessage: InsertMessage): Promise<Message> {
+    const result = await db.insert(messages).values(insertMessage).returning();
+    return result[0];
+  }
+  
+  async getMessagesBySessionId(sessionId: string): Promise<Message[]> {
+    const result = await db.select()
+      .from(messages)
+      .where(eq(messages.sessionId, sessionId))
+      .orderBy(messages.createdAt);
+    
+    return result;
+  }
+  
+  async deleteMessagesBySessionId(sessionId: string): Promise<void> {
+    await db.delete(messages).where(eq(messages.sessionId, sessionId));
+  }
+}
+
+// Memory storage implementation for fallback or testing
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private messages: Map<number, Message>;
@@ -74,4 +113,5 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// Export the database storage instance
+export const storage = new DatabaseStorage();
